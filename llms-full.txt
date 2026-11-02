@@ -1,16 +1,20 @@
 # Harshadeva Priyankara Bandara — Senior Laravel Engineer & Tech Lead
 
-> Senior full-stack engineer and technical lead based in Colombo, Sri Lanka (UTC+5:30), with 7+ years of production Laravel/PHP experience. Builds payment platforms, multi-tenant SaaS, ERPs and admin panels for companies that need them correct, fast and still easy to change years later. Open to freelance and contract projects with clients worldwide.
+> Senior full-stack engineer and technical lead based in Colombo, Sri Lanka (UTC+5:30), with 7+ years of production Laravel/PHP experience. Builds fintech platforms, multi-tenant SaaS, ERPs and admin panels for companies that need them correct, fast and still easy to change years later. Open to freelance and contract projects with clients worldwide.
 
 - Website: https://devmind.online/
 - WhatsApp / phone: +94 71 727 5539
 - Email: hpbandara94@gmail.com
+- LinkedIn: https://www.linkedin.com/in/harshadeva-priyankara-bandara
+- GitHub: https://github.com/harshadeva
+- Stack Overflow: https://stackoverflow.com/users/harshadeva-priyankara-bandara
+- Also known as: Harshadeva Bandara, Harshadeva Priyankara, H. P. Bandara
 - Engagement: hourly or fixed price
 - Last updated: 2026-11-02
 
 ## Who he is
 
-Harshadeva is a senior full-stack engineer from Colombo, Sri Lanka, who has spent seven years building Laravel systems that run in production every day. Most of his work lives behind a login screen: payment platforms, ERPs, admin panels, multi-tenant SaaS and the APIs that hold them together. These are systems businesses depend on, where a wrong number or a double charge is a real problem.
+Harshadeva is a senior full-stack engineer from Colombo, Sri Lanka, who has spent seven years building Laravel systems that run in production every day. Most of his work lives behind a login screen: fintech platforms, ERPs, admin panels, multi-tenant SaaS and the APIs that hold them together. These are systems businesses depend on, where a wrong number or a double charge is a real problem.
 
 He leads teams, reviews code and makes architecture calls, and still writes code every day.
 
@@ -38,8 +42,8 @@ Outside work: driving, reading and working out.
 
 ## Specialities
 
-### Payment and transaction systems
-Built and scaled a payment integration platform handling about 100 transactions per second across 100+ payment gateways and services, including Stripe. Idempotency keys, safe retries, duplicate-charge prevention, and webhook handling for success, failure and refunds that keeps every system consistent.
+### Fintech and transaction systems
+Built and scaled a fintech platform handling about 100 transactions per second across 100+ payment gateways and services, including Stripe. Idempotency keys, safe retries, duplicate-charge prevention, and webhook handling for success, failure and refunds that keeps every system consistent.
 
 ### Multi-tenant SaaS
 Dedicated database per tenant inside a modular monolith: each client's data is physically separated, modules have clear boundaries, and the application still deploys as one unit.

@@ -1,4 +1,4 @@
-# Personal site — Harshadeva Priyankara
+# Personal site — Harshadeva Bandara
 
 Plain HTML, CSS and JS. No build step. Upload the folder to any static host (Netlify, Vercel, Cloudflare Pages, GitHub Pages, or shared hosting).
 
@@ -27,11 +27,10 @@ npx serve -l 4321 .
 The site uses `https://devmind.online/` as its canonical address. If the domain changes, find and replace it in:
 `index.html`, `llms.txt`, `llms-full.txt`, `robots.txt`, `sitemap.xml`.
 
-## Adding LinkedIn / GitHub / Stack Overflow
+## Profile links
 
-1. In `index.html`, uncomment the `social` paragraph at the end of the Contact section and fill in the URLs.
-2. Add the same URLs to the Person JSON-LD as `"sameAs": ["https://…", "https://…"]`. This is how search engines and AI agents connect those profiles to you.
-3. Add them under "Contact" in `llms.txt` and `llms-full.txt`.
+LinkedIn, GitHub and Stack Overflow appear in three places. Keep them in sync when one changes:
+the `social` paragraph in the Contact section and `"sameAs"` in the Person JSON-LD (both in `index.html`), plus `llms.txt` and `llms-full.txt`.
 
 ## After going live
 

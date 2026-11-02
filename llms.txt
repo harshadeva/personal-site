@@ -1,14 +1,14 @@
 # Harshadeva Priyankara Bandara
 
-> Senior full-stack engineer and technical lead based in Colombo, Sri Lanka (UTC+5:30), with 7+ years of production Laravel/PHP experience. Specializes in backend systems: payment and transaction platforms, multi-tenant SaaS (database-per-tenant, modular monolith), ERPs, admin panels, and performance optimization. Available for freelance and contract work with clients worldwide.
+> Senior full-stack engineer and technical lead based in Colombo, Sri Lanka (UTC+5:30), with 7+ years of production Laravel/PHP experience. Specializes in backend systems: fintech and transaction platforms, multi-tenant SaaS (database-per-tenant, modular monolith), ERPs, admin panels, and performance optimization. Available for freelance and contract work with clients worldwide.
 
-Also known as: Harshadeva Priyankara, H. P. Bandara.
+Also known as: Harshadeva Bandara, Harshadeva Priyankara, H. P. Bandara.
 
 ## Key facts
 
 - Role: Senior Full-Stack Engineer & Tech Lead (Senior Software Engineer at Webmotech Pvt Ltd since September 2022)
 - Experience: building Laravel systems in production since 2019
-- Built a payment integration platform handling about 100 transactions per second, with 100+ payment gateways and services integrated, idempotent processing, retries, duplicate-charge prevention and webhook reconciliation
+- Built a fintech platform handling about 100 transactions per second, with 100+ payment gateways and services integrated, idempotent processing, retries, duplicate-charge prevention and webhook reconciliation
 - Architected an ERP serving 4,000+ organizations nationwide, with real-time reporting over server-sent events
 - Builds multi-tenant SaaS with a dedicated database per tenant, inside a modular monolith
 - Cut a critical report's response time from 2 minutes to 2 seconds, and cut AWS infrastructure costs by 40%
@@ -32,9 +32,12 @@ Principles: SOLID, ACID, DRY, and quality over rushing ("saving one week with ru
 - WhatsApp / phone: +94 71 727 5539
 - Email: hpbandara94@gmail.com
 - Location: Colombo, Sri Lanka (UTC+5:30); works remotely with clients worldwide
+- LinkedIn: https://www.linkedin.com/in/harshadeva-priyankara-bandara
+- GitHub: https://github.com/harshadeva
+- Stack Overflow: https://stackoverflow.com/users/harshadeva-priyankara-bandara
 
 ## Pages
 
 - [Home page](https://devmind.online/): full profile, process, principles, specialities, leadership, background, FAQ and contact
 - [Full profile in Markdown](https://devmind.online/llms-full.txt): the complete text of the site in one file
-- [Résumé (PDF)](https://devmind.online/assets/docs/harshadeva-priyankara-resume.pdf)
+- [Résumé (PDF)](https://devmind.online/assets/docs/harshadeva-bandara-resume.pdf)

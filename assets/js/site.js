@@ -172,21 +172,25 @@
   var debt = $('[data-debt]');
   if (debt) {
     var range = $('#debt-weeks');
-    var ticks = $('.clock-ticks', debt);
-    for (var i = 0; i < 12; i++) {
-      var a = i * Math.PI / 6, r1 = i % 3 ? 48 : 44;
-      var ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      ln.setAttribute('x1', 60 + Math.sin(a) * r1); ln.setAttribute('y1', 60 - Math.cos(a) * r1);
-      ln.setAttribute('x2', 60 + Math.sin(a) * 52); ln.setAttribute('y2', 60 - Math.cos(a) * 52);
-      ticks.appendChild(ln);
-    }
+    // One night-time alert per week of shortcuts.
+    var alerts = [
+      ['02:04 AM', 'Checkout timing out for some customers'],
+      ['02:17 AM', 'Duplicate invoices reported'],
+      ['01:52 AM', 'Nightly report job stuck'],
+      ['02:41 AM', 'Queue workers out of memory'],
+      ['02:09 AM', 'Webhooks failing silently'],
+      ['03:02 AM', 'Last hotfix broke login'],
+      ['02:26 AM', 'Balances don’t add up'],
+      ['02:55 AM', 'Nobody knows how this module works']
+    ];
+    var pager = $('[data-pager]', debt);
+    var pagerList = $('[data-pager-list]', debt);
     var verdicts = [
       [0, 'No shortcuts. You sleep through the night.'],
       [1, 'Looks cheap now. It won’t be.'],
       [3, 'Your roadmap is now mostly bug fixes.'],
       [6, 'Welcome to the 2 AM incident call.']
     ];
-    var hourHand = $('[data-clock-hour]', debt), minHand = $('[data-clock-min]', debt);
     var updateDebt = function () {
       var w = +range.value;
       var cost = w * 4;
@@ -198,12 +202,20 @@
       var verdict = verdicts[0][1];
       verdicts.forEach(function (v) { if (w >= v[0]) verdict = v[1]; });
       $('[data-debt-verdict]', debt).textContent = verdict;
-      // The call comes later the more you cut: 10:00 PM at zero, 2:00 AM at eight weeks.
-      var mins = (22 * 60 + w * 30) % 1440;
-      var h = Math.floor(mins / 60), m = mins % 60;
-      hourHand.style.transform = 'rotate(' + ((h % 12) * 30 + m / 2) + 'deg)';
-      minHand.style.transform = 'rotate(' + (m * 6) + 'deg)';
-      $('[data-clock-time]', debt).textContent = ((h % 12) || 12) + ':' + (m < 10 ? '0' : '') + m + (h >= 12 ? ' PM' : ' AM');
+      // Add or remove only the difference, so new alerts animate in and old ones stay put.
+      while (pagerList.children.length > w) pagerList.removeChild(pagerList.lastElementChild);
+      while (pagerList.children.length < w) {
+        var a = alerts[pagerList.children.length];
+        var li = document.createElement('li');
+        var time = document.createElement('span');
+        time.className = 'mono';
+        time.textContent = a[0];
+        li.appendChild(time);
+        li.appendChild(document.createTextNode(a[1]));
+        pagerList.appendChild(li);
+      }
+      $('[data-pager-count]', debt).textContent = w;
+      pager.classList.toggle('has-alerts', w > 0);
       debt.classList.toggle('is-late', w >= 6);
     };
     range.addEventListener('input', updateDebt);
@@ -389,15 +401,36 @@
       var h = Math.floor(mins / 60), m = mins % 60;
       return ((h % 12) || 12) + ':' + (m < 10 ? '0' : '') + m + (h >= 12 ? ' PM' : ' AM');
     };
+    var fmtSpan = function (mins) {
+      var h = Math.floor(Math.abs(mins) / 60), m = Math.abs(mins) % 60;
+      return h + 'h' + (m ? ' ' + m + 'm' : '');
+    };
+    var fmtOffset = function (mins) {
+      var a = Math.abs(mins), h = Math.floor(a / 60), m = a % 60;
+      return 'UTC' + (mins < 0 ? '−' : '+') + h + (m ? ':' + (m < 10 ? '0' : '') + m : '');
+    };
+    var zoneName = '';
+    try { zoneName = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+    var city = zoneName ? zoneName.split('/').pop().replace(/_/g, ' ') : '';
+    $('[data-clock-city]').textContent = city ? 'You · ' + city : 'You';
+    var zoneAbbr = function (now) {
+      try {
+        var part = new Intl.DateTimeFormat('en-US', { timeZoneName: 'short' }).formatToParts(now)
+          .filter(function (p) { return p.type === 'timeZoneName'; })[0];
+        return part && !/^(GMT|UTC)/.test(part.value) ? part.value : '';
+      } catch (e) { return ''; }
+    };
     var tick = function () {
       var now = new Date();
       colomboEl.textContent = fmtTime(now, 'Asia/Colombo');
       localEl.textContent = fmtTime(now);
-      var diff = COLOMBO_OFFSET + now.getTimezoneOffset();
-      var hrs = Math.abs(diff) / 60;
-      var hrsText = (hrs % 1 ? hrs.toFixed(1) : hrs) + (hrs === 1 ? ' hour' : ' hours');
+      var localOffset = -now.getTimezoneOffset();
+      var abbr = zoneAbbr(now);
+      $('[data-clock-zone]').textContent = (zoneName ? zoneName + ' · ' : '') + (abbr ? abbr + ' (' + fmtOffset(localOffset) + ')' : fmtOffset(localOffset));
+      var diff = COLOMBO_OFFSET - localOffset;
+      $('[data-clock-gap]').textContent = diff === 0 ? 'same time' : fmtSpan(diff) + ' apart';
       if (diff === 0) diffEl.textContent = 'We’re in the same time zone.';
-      else diffEl.textContent = 'Colombo is ' + hrsText + (diff > 0 ? ' ahead of' : ' behind') + ' you. Your 9:00 AM is ' + fmtMins(9 * 60 + diff) + ' here.';
+      else diffEl.textContent = 'Colombo is ' + fmtSpan(diff) + (diff > 0 ? ' ahead of' : ' behind') + ' you. Your 9:00 AM is ' + fmtMins(9 * 60 + diff) + ' in Colombo.';
     };
     tick();
     setInterval(tick, 30000);
