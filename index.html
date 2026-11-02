@@ -632,15 +632,45 @@
             <span class="mono">Time zones</span>
             <div class="tz-grid">
               <div class="tz-side">
+                <svg class="sky" viewBox="0 0 200 116" aria-hidden="true" data-sky="me">
+                  <defs><mask id="moon-cut-me"><rect x="-12" y="-12" width="24" height="24" fill="#fff"/><circle cx="4.5" cy="-3.5" r="7.5" fill="#000"/></mask></defs>
+                  <path class="sky-dome" d="M20 96 A80 80 0 0 1 180 96 Z"/>
+                  <g class="sky-stars"><circle cx="58" cy="52" r="1.3"/><circle cx="84" cy="34" r="1"/><circle cx="118" cy="40" r="1.4"/><circle cx="142" cy="60" r="1"/><circle cx="100" cy="66" r="1.1"/><circle cx="70" cy="78" r=".9"/><circle cx="132" cy="82" r="1.2"/></g>
+                  <path class="sky-arc" d="M20 96 A80 80 0 0 1 180 96"/>
+                  <line class="sky-horizon" x1="4" y1="96" x2="196" y2="96"/>
+                  <line class="sky-tick" x1="20" y1="93" x2="20" y2="99"/><line class="sky-tick" x1="100" y1="93" x2="100" y2="99"/><line class="sky-tick" x1="180" y1="93" x2="180" y2="99"/>
+                  <text class="sky-txt" x="20" y="111" text-anchor="middle" data-sky-from>06:00</text>
+                  <text class="sky-txt" x="180" y="111" text-anchor="middle" data-sky-to>18:00</text>
+                  <g class="sky-body" data-sky-body transform="translate(20 96)">
+                    <g class="sun"><g class="sun-rays"><line x1="0" y1="-12" x2="0" y2="-16"/><line x1="0" y1="12" x2="0" y2="16"/><line x1="-12" y1="0" x2="-16" y2="0"/><line x1="12" y1="0" x2="16" y2="0"/><line x1="8.5" y1="8.5" x2="11.3" y2="11.3"/><line x1="-8.5" y1="-8.5" x2="-11.3" y2="-11.3"/><line x1="8.5" y1="-8.5" x2="11.3" y2="-11.3"/><line x1="-8.5" y1="8.5" x2="-11.3" y2="11.3"/></g><circle r="8"/></g>
+                    <circle class="moon" r="9" mask="url(#moon-cut-me)"/>
+                  </g>
+                </svg>
                 <p class="mono tz-label">Me · Colombo, Sri Lanka</p>
                 <strong class="tz-time" data-clock-colombo>--:--</strong>
                 <p class="mono tz-zone">Asia/Colombo · UTC+5:30</p>
+                <p class="mono tz-phase" data-sky-phase="me"></p>
               </div>
               <div class="tz-gap" aria-hidden="true"><span class="tz-line"></span><span class="mono tz-diff" data-clock-gap>—</span><span class="tz-line"></span></div>
               <div class="tz-side tz-you">
+                <svg class="sky" viewBox="0 0 200 116" aria-hidden="true" data-sky="you">
+                  <defs><mask id="moon-cut-you"><rect x="-12" y="-12" width="24" height="24" fill="#fff"/><circle cx="4.5" cy="-3.5" r="7.5" fill="#000"/></mask></defs>
+                  <path class="sky-dome" d="M20 96 A80 80 0 0 1 180 96 Z"/>
+                  <g class="sky-stars"><circle cx="58" cy="52" r="1.3"/><circle cx="84" cy="34" r="1"/><circle cx="118" cy="40" r="1.4"/><circle cx="142" cy="60" r="1"/><circle cx="100" cy="66" r="1.1"/><circle cx="70" cy="78" r=".9"/><circle cx="132" cy="82" r="1.2"/></g>
+                  <path class="sky-arc" d="M20 96 A80 80 0 0 1 180 96"/>
+                  <line class="sky-horizon" x1="4" y1="96" x2="196" y2="96"/>
+                  <line class="sky-tick" x1="20" y1="93" x2="20" y2="99"/><line class="sky-tick" x1="100" y1="93" x2="100" y2="99"/><line class="sky-tick" x1="180" y1="93" x2="180" y2="99"/>
+                  <text class="sky-txt" x="20" y="111" text-anchor="middle" data-sky-from>06:00</text>
+                  <text class="sky-txt" x="180" y="111" text-anchor="middle" data-sky-to>18:00</text>
+                  <g class="sky-body" data-sky-body transform="translate(20 96)">
+                    <g class="sun"><g class="sun-rays"><line x1="0" y1="-12" x2="0" y2="-16"/><line x1="0" y1="12" x2="0" y2="16"/><line x1="-12" y1="0" x2="-16" y2="0"/><line x1="12" y1="0" x2="16" y2="0"/><line x1="8.5" y1="8.5" x2="11.3" y2="11.3"/><line x1="-8.5" y1="-8.5" x2="-11.3" y2="-11.3"/><line x1="8.5" y1="-8.5" x2="11.3" y2="-11.3"/><line x1="-8.5" y1="8.5" x2="-11.3" y2="11.3"/></g><circle r="8"/></g>
+                    <circle class="moon" r="9" mask="url(#moon-cut-you)"/>
+                  </g>
+                </svg>
                 <p class="mono tz-label" data-clock-city>You</p>
                 <strong class="tz-time" data-clock-local>--:--</strong>
                 <p class="mono tz-zone" data-clock-zone>Your local time</p>
+                <p class="mono tz-phase" data-sky-phase="you"></p>
               </div>
             </div>
             <p class="tz-pitch" data-clock-pitch>

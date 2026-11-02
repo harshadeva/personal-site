@@ -435,6 +435,41 @@
       return ['Follow the sun', 'While you sleep, I build. Send feedback at the end of your day and wake up to progress.'];
     };
     var pitchLabel = $('[data-clock-pitch-label]'), pitchText = $('[data-clock-pitch-text]');
+
+    // Sky above each clock. The sun crosses the arc 06:00–18:00, the moon 18:00–06:00.
+    var skies = { me: $('[data-sky="me"]'), you: $('[data-sky="you"]') };
+    var skyRisen = {};
+    var skyVisible = !('IntersectionObserver' in window);
+    var phaseOf = function (m) {
+      if (m >= 540 && m < 1080) return 'Working hours';
+      if (m >= 1080 && m < 1380) return 'Evening';
+      if (m >= 360 && m < 540) return 'Morning';
+      return 'Night';
+    };
+    var placeBody = function (svg, t) {
+      var a = Math.PI * (1 - t);
+      $('[data-sky-body]', svg).setAttribute('transform', 'translate(' + (100 + 80 * Math.cos(a)).toFixed(1) + ' ' + (96 - 80 * Math.sin(a)).toFixed(1) + ')');
+    };
+    var drawSky = function (who, mins) {
+      var svg = skies[who];
+      if (!svg) return;
+      var day = mins >= 360 && mins < 1080;
+      var t = day ? (mins - 360) / 720 : ((mins - 1080 + 1440) % 1440) / 720;
+      svg.classList.toggle('is-night', !day);
+      $('[data-sky-from]', svg).textContent = day ? '06:00' : '18:00';
+      $('[data-sky-to]', svg).textContent = day ? '18:00' : '06:00';
+      $('[data-sky-phase="' + who + '"]').textContent = phaseOf(mins);
+      if (!skyVisible) return placeBody(svg, 0);
+      if (skyRisen[who] || reduceMotion) return placeBody(svg, t);
+      // First time the card is seen: rise from the horizon to the current position.
+      skyRisen[who] = true;
+      var start = performance.now();
+      (function step(now) {
+        var p = Math.min(1, (now - start) / 1600);
+        placeBody(svg, t * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      })(start);
+    };
     var tick = function () {
       var now = new Date();
       colomboEl.textContent = fmtTime(now, 'Asia/Colombo');
@@ -444,6 +479,9 @@
       $('[data-clock-zone]').textContent = (zoneName ? zoneName + ' · ' : '') + (abbr ? abbr + ' (' + fmtOffset(localOffset) + ')' : fmtOffset(localOffset));
       var diff = COLOMBO_OFFSET - localOffset;
       $('[data-clock-gap]').textContent = diff === 0 ? 'same time' : fmtSpan(diff) + ' apart';
+      var utcMins = now.getUTCHours() * 60 + now.getUTCMinutes();
+      drawSky('me', (utcMins + COLOMBO_OFFSET) % 1440);
+      drawSky('you', ((utcMins + localOffset) % 1440 + 1440) % 1440);
       var pitch = pitchFor(diff);
       pitchLabel.textContent = pitch[0];
       pitchText.textContent = pitch[1];
@@ -452,6 +490,15 @@
     };
     tick();
     setInterval(tick, 30000);
+    if (!skyVisible) {
+      var skyObs = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        skyObs.disconnect();
+        skyVisible = true;
+        tick();
+      }, { threshold: 0.4 });
+      skyObs.observe($('.tz'));
+    }
   }
 
   var year = $('[data-year]');
