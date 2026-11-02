@@ -420,6 +420,21 @@
         return part && !/^(GMT|UTC)/.test(part.value) ? part.value : '';
       } catch (e) { return ''; }
     };
+    // What the gap means for working together, from "same hours" to "follow the sun".
+    // diff > 0 means Colombo is ahead of the visitor.
+    var pitchFor = function (diff) {
+      var hrs = Math.abs(diff) / 60;
+      if (diff === 0) return ['Same hours', 'We share the whole working day, so you can reach me whenever you’re at your desk.'];
+      if (hrs < 3) return ['Shared day', 'Our working days almost line up. Calls are easy to fit in, any day of the week.'];
+      if (hrs < 6) return ['Long overlap', 'We share a good part of every working day: plenty of time for calls, and progress keeps going after you log off.'];
+      if (hrs < 9) {
+        return ['Overlap + handoff', diff > 0
+          ? 'Your morning overlaps my afternoon, which is our window for calls. Work keeps moving for the rest of your day.'
+          : 'Your afternoon overlaps my morning, which is our window for calls. Work keeps moving for the rest of your day.'];
+      }
+      return ['Follow the sun', 'While you sleep, I build. Send feedback at the end of your day and wake up to progress.'];
+    };
+    var pitchLabel = $('[data-clock-pitch-label]'), pitchText = $('[data-clock-pitch-text]');
     var tick = function () {
       var now = new Date();
       colomboEl.textContent = fmtTime(now, 'Asia/Colombo');
@@ -429,6 +444,9 @@
       $('[data-clock-zone]').textContent = (zoneName ? zoneName + ' · ' : '') + (abbr ? abbr + ' (' + fmtOffset(localOffset) + ')' : fmtOffset(localOffset));
       var diff = COLOMBO_OFFSET - localOffset;
       $('[data-clock-gap]').textContent = diff === 0 ? 'same time' : fmtSpan(diff) + ' apart';
+      var pitch = pitchFor(diff);
+      pitchLabel.textContent = pitch[0];
+      pitchText.textContent = pitch[1];
       if (diff === 0) diffEl.textContent = 'We’re in the same time zone.';
       else diffEl.textContent = 'Colombo is ' + fmtSpan(diff) + (diff > 0 ? ' ahead of' : ' behind') + ' you. Your 9:00 AM is ' + fmtMins(9 * 60 + diff) + ' in Colombo.';
     };
