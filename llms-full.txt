@@ -1,0 +1,100 @@
+# Harshadeva Priyankara Bandara — Senior Laravel Engineer & Tech Lead
+
+> Senior full-stack engineer and technical lead based in Colombo, Sri Lanka (UTC+5:30), with 7+ years of production Laravel/PHP experience. Builds payment platforms, multi-tenant SaaS, ERPs and admin panels for companies that need them correct, fast and still easy to change years later. Open to freelance and contract projects with clients worldwide.
+
+- Website: https://devmind.online/
+- WhatsApp / phone: +94 71 727 5539
+- Email: hpbandara94@gmail.com
+- Engagement: hourly or fixed price
+- Last updated: 2026-11-02
+
+## Who he is
+
+Harshadeva is a senior full-stack engineer from Colombo, Sri Lanka, who has spent seven years building Laravel systems that run in production every day. Most of his work lives behind a login screen: payment platforms, ERPs, admin panels, multi-tenant SaaS and the APIs that hold them together. These are systems businesses depend on, where a wrong number or a double charge is a real problem.
+
+He leads teams, reviews code and makes architecture calls, and still writes code every day.
+
+Teammates describe him as knowledgeable, a steady leader, and inspiring to work with.
+
+Outside work: driving, reading and working out.
+
+## How he thinks: his process
+
+"Think first. Draw it. Then build it right." Most failed projects don't fail in the code. They fail because people imagined different things and found out too late.
+
+1. **Understand the problem, not just the request.** Who uses it, what breaks if it fails, what "done" looks like. Output: problem statement, user roles, constraints, risks.
+2. **Draw it and write it down.** Flow diagrams, data models, sequence diagrams and a written scope, revised until client, engineer and team describe the project the same way. Output: diagrams and a scope document everyone has agreed to.
+3. **Slice the scope, then estimate.** Small, independently deliverable pieces, each estimated on its own. Output: prioritized backlog with per-item estimates.
+4. **Build in short phases you can review.** Agile cycles. The client reviews working software at the end of every phase, so drift from expectations is caught early. Output: a working build every phase.
+5. **Ship with guardrails.** Code review, automated checks, CI/CD and static analysis on every change. Output: reviewed code, green pipeline, repeatable deploys.
+6. **Observe and improve.** Logs, metrics and alerts from day one. Output: dashboards, alerts, improvements backed by data.
+
+## Principles
+
+- **SOLID — code that's easy to change.** Each part does one job; new features extend the system instead of forcing a rewrite.
+- **ACID — data you can trust.** Money and records move inside transactions: all or nothing.
+- **DRY — one source of truth.** Each business rule lives in one place.
+- **Quality over rush.** When the deadline is tight, cut scope, not quality. His rule of thumb: saving one week with rushed work costs about a month later, usually at 2 AM.
+
+## Specialities
+
+### Payment and transaction systems
+Built and scaled a payment integration platform handling about 100 transactions per second across 100+ payment gateways and services, including Stripe. Idempotency keys, safe retries, duplicate-charge prevention, and webhook handling for success, failure and refunds that keeps every system consistent.
+
+### Multi-tenant SaaS
+Dedicated database per tenant inside a modular monolith: each client's data is physically separated, modules have clear boundaries, and the application still deploys as one unit.
+
+### Performance optimization
+Took a critical report from 2 minutes to 2 seconds through query profiling, refactoring and indexing, with Redis caching. Reduced AWS infrastructure costs by 40%.
+
+### Admin panels, ERPs and dashboards
+Role-based access, multi-level permissions, real-time dashboards using server-sent events and WebSockets. Architected an ERP serving 4,000+ organizations nationwide.
+
+### APIs and integrations
+REST API design; integrations with payment gateways, Stripe, Google Maps, Firebase Cloud Messaging, SMS and email providers, and webhooks.
+
+### Delivery and observability
+AWS, Jenkins CI/CD, SonarQube, Elasticsearch and Kibana.
+
+## Leadership
+
+- **Resolving disagreements:** most disagreements are misunderstandings. He brings both people into the same room at the same time, first aligns on the facts and scope, then hears each side's opinion. Most disagreements resolve once the scope is clear; the rest are real trade-offs decided with data.
+- **Code review as teaching:** explains the why, not just the what.
+- **Growing developers:** real ownership with a safety net, pairing when stuck, honest feedback.
+- **Translating both ways:** business requirements into technical plans, technical risk into business language.
+
+## Career
+
+- Sep 2022 – present: Senior Software Engineer, Webmotech Pvt Ltd, Sri Lanka
+- Sep 2020 – Sep 2022: Software Engineer, Sevensings Digital Solutions, Sri Lanka
+- Jul 2019 – Aug 2020: Software Engineer (intern to junior), Visiro Global, Sri Lanka
+
+## Education and certifications
+
+- BSc (Hons) in Computer Science, University of Bolton, UK (2017–2019)
+- Getting Started with Go, University of California, Irvine (2025)
+- AWS Cloud Practitioner (in progress)
+
+## Skills
+
+- Backend: PHP, Laravel, Livewire, REST API design, queues, idempotent payment flows
+- Data: MySQL, PostgreSQL, Redis, Elasticsearch
+- Frontend: Vue.js, Inertia.js, Alpine.js, Blade, Tailwind CSS, Vite
+- Real-time: WebSockets, server-sent events, Firebase Cloud Messaging
+- Infrastructure and quality: AWS, Jenkins CI/CD, SonarQube, Kibana
+- Ways of working: Agile (Scrum/Kanban), system design, code review, mentoring
+- Learning: Go
+
+## FAQ
+
+**What kind of projects does he take on?** Backend-heavy Laravel work: new systems, APIs, payment integrations, multi-tenant SaaS, admin panels and ERPs, performance fixes, and technical leadership.
+
+**Does he work with clients in other time zones?** Yes. He works remotely with clients around the world from Colombo (UTC+5:30), asynchronously with clear written updates, and agrees on call times that suit both sides.
+
+**How does he price?** Hourly or fixed price. Fixed price for clearly scoped work, usually after a short discovery phase; hourly for ongoing or evolving work.
+
+**Can he take over an existing Laravel codebase?** Yes. He reads the code, maps the architecture, lists the risks, and agrees with the client on what to fix first.
+
+**Does he do frontend?** Yes (Vue.js, Inertia.js, Livewire, Alpine.js, Blade, Tailwind CSS), though backend and architecture are his core strength.
+
+**How to start?** Send a short project description on WhatsApp (+94 71 727 5539) or email (hpbandara94@gmail.com). He replies with questions, then a call, then a written scope with diagrams and an estimate before any code is written.
