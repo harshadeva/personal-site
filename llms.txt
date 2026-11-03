@@ -16,6 +16,9 @@ Also known as: Harshadeva Bandara, Harshadeva Priyankara, H. P. Bandara.
 - Education: BSc (Hons) in Computer Science, University of Bolton (UK)
 - Engagement: hourly or fixed price; rates discussed directly
 
+- AI tools: Claude Code (primary), Codex, Cursor, Cline, Google Antigravity
+- Automation: n8n (main), Make
+
 ## How he works
 
 1. Understand the problem: users, risks, constraints, definition of done

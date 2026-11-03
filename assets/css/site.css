@@ -618,3 +618,9 @@ a.contact-card:hover, .contact-card:focus-within { transform: translate(-3px, -3
   .topbar, .crosshair, .demo, .debt, .venn, .theme-toggle { display: none !important; }
   .js [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* AI & automation tool lists */
+.tool-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.tool-list li { padding: 6px 12px; border: 1px solid var(--line); background: var(--card); font-size: 1rem; color: var(--ink); }
+.tool-list li.tool-main { border-color: var(--signal); }
+.tool-list li.tool-main .mono { color: var(--signal); margin-right: 8px; font-size: .68rem; }

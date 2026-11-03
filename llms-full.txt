@@ -67,6 +67,12 @@ AWS, Jenkins CI/CD, SonarQube, Elasticsearch and Kibana.
 - **Growing developers:** real ownership with a safety net, pairing when stuck, honest feedback.
 - **Translating both ways:** business requirements into technical plans, technical risk into business language.
 
+## AI tools and automation
+
+AI is part of his daily workflow. Claude Code is his primary AI coding tool. He has also worked with Codex, Cursor, Cline and Google Antigravity. He uses AI to move faster and always reviews the code it produces.
+
+For workflow automation he mainly uses n8n, and has experience with Make.
+
 ## Career
 
 - Sep 2022 – present: Senior Software Engineer, Webmotech Pvt Ltd, Sri Lanka
